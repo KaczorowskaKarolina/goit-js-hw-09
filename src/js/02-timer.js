@@ -1,6 +1,7 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/flatpickr.min.css";
 import notiflix from "notiflix";
+// import * as notiflix from "notiflix";
 
 const options = {
   enableTime: true,
@@ -11,7 +12,8 @@ const options = {
     const selectedDate = selectedDates[0];
 
 if (selectedDate < new Date()) {
-  notiflix.alert("Please choose a date in the future");
+  // notiflix.info("Please choose a date in the future");
+  notiflix.Notify.info("Please choose a date in the future");
   return;
 }
 
@@ -54,11 +56,12 @@ startButton.addEventListener("click", () => {
   const currentDate = new Date();
 
 if (selectedDate < currentDate) {
-    notiflix.alert("Please choose a date in the future");
+    // notiflix.info("Please choose a date in the future");
+    notiflix.Notify.info("Please choose a date in the future");
     return;
   }
 
-const countdownTime = selectedDate.getTime() - currentDate.getTime();
+let countdownTime = selectedDate.getTime() - currentDate.getTime();
 
 startButton.disabled = true;
 
